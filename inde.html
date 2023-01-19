@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    body{
+        background-image: url("bg.jpg");
+        background-size: cover;
+    }
+</style>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">กรอกคะแนน</span>
+                    <input type="text" class="form-control" placeholder="0 - 100" aria-label="0 - 100"
+                        aria-describedby="button-addon2" id="score">
+                    <button class="btn btn-outline-secondary" type="button" onclick="checkScore()">ตัดเกรด</button>
+                </div>
+                <hr>
+                <div class="text-center">
+                    การตัดเกรดแบบ 8 เกรดจะแบ่งช่วงคะแนนการตัดเกรดดังนี้
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">คะแนน</th>
+                                <th scope="col">เกรด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>80-100</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <td>75-79</td>
+                                <td>B+</td>
+                            </tr>
+                            <tr>
+                                <td>70-74</td>
+                                <td>B</td>
+                            </tr>
+                            <tr>
+                                <td>65-69</td>
+                                <td>C+</td>
+                            </tr>
+                            <tr>
+                                <td>60-64</td>
+                                <td>C</td>
+                            </tr>
+                            <tr>
+                                <td>55-59</td>
+                                <td>D+</td>
+                            </tr>
+                            <tr>
+                                <td>50-54</td>
+                                <td>D</td>
+                            </tr>
+                            <tr>
+                                <td>0-49</td>
+                                <td>E</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <h3 id="gradeDisplay" class="text-center"></h3>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function checkScore() {
+        score = document.getElementById("score").value;
+
+        if (score >= 80 && score <= 100) {
+            grade = "A";
+        }
+        else if (score >= 75 && score <= 79) {
+            grade = "B+";
+        }
+        else if (score >= 70 && score <= 74) {
+            grade = "B";
+        }
+        else if (score >= 65 && score <= 69) {
+            grade = "C+";
+        }
+        else if (score >= 60 && score <= 64) {
+            grade = "C";
+        }
+        else if (score >= 55 && score <= 59) {
+            grade = "D+";
+        }
+        else if (score >= 50 && score <= 54) {
+            grade = "D";
+        }
+        else if (score >= 0 && score <= 49) {
+            grade = "E";
+        }
+        else {
+            grade = "ERROR ได้คะแนนมากกว่า 100 หรือน้อยกว่า 0";
+        }
+
+        document.getElementById("gradeDisplay").innerHTML = "คุณได้เกรด : " + grade;
+    }
+</script>
+
+</html>
